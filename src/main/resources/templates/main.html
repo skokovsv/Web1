@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div>
+    <form method="post">
+        <input type="text" name="text" placeholder="Введите ФИО"/>
+        <input type="text" name="groupp" placeholder="Введите номер группы"/>
+        <button type="submit">Добавить</button>
+    </form>
+</div>
+
+<div>Список студентов</div>
+<form  method="post" action="filter">
+    <input type="text" name="filter">
+    <button type="submit">Найти</button>
+</form>
+<ul>
+    <th:block th:each="student : ${students}">
+        [[${student.getGroupp()}]] [[${student.getName()}]]
+        </br>
+    </th:block>
+</ul>
+
+</body>
+</html>

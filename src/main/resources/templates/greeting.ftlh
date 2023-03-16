@@ -1,7 +1,7 @@
 <#import "parts/common.ftlh" as c>
 
 <@c.page>
-    <div>
+    <div style="padding-top: 50px">
         Hello, ${name}!
     </div>
     <h5><b>Разработал: Скоков Сергей</b></h5>

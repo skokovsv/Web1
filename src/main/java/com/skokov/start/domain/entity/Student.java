@@ -1,7 +1,7 @@
 package com.skokov.start.domain.entity;
 
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 
 @Entity
 @Table(name="student")
@@ -17,9 +17,23 @@ public class Student {
     @Column(name="groupp")
     private Integer groupp;
 
-    public Student(String name,int groupp) {
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name="user_id")
+    private User studentuser;
+
+    public String getStudentuser(){
+        return studentuser !=null ? studentuser.getUsername() : "отсутствует";
+    }
+
+
+    public void setStudentuser(User studentuser){
+        this.studentuser=studentuser;
+    }
+
+    public Student(String name,int groupp,User studentuser) {
         this.name = name;
         this.groupp=groupp;
+        this.studentuser=studentuser;
     }
 
     public Student(){

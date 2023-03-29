@@ -1,14 +1,10 @@
 <#import "parts/common.ftlh" as c>
-<#--//@{/logout}-->
-<@c.page>
-    <div>
-        <form action="/logout" method="post">
-            <input type="submit" value="Покинуть">
-            <input type="hidden" name="_csrf" value="${_csrf.token}">
-<#--            <input type="hidden" name="_csrf" value="${_csrf.token}">-->
+<#import "parts/logreg.ftlh" as l>
 
-        </form>
-    </div>
+<@c.page>
+    <@l.logout/>
+    <span><a href="/user">Список пользователей</a></span>
+
 
 
     <div>

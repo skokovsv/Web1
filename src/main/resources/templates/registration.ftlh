@@ -2,7 +2,10 @@
 <#import "parts/logreg.ftlh" as l>
 
 <@c.page>
-    Добавить нового пользователя
+    <div class="mb-3">
+        Добавить нового пользователя
+    </div>
+
     <#if message??> ${message}</#if>
-    <@l.login "/registration"/>
+    <@l.login "/registration" true />
 </@c.page>

@@ -30,10 +30,22 @@ public class Student {
         this.studentuser=studentuser;
     }
 
-    public Student(String name,int groupp,User studentuser) {
+    public String avatarname;
+
+
+
+    public Student(String name,int groupp,User studentuser,String avatarname) {
         this.name = name;
         this.groupp=groupp;
         this.studentuser=studentuser;
+        this.avatarname=avatarname;
+    }
+    public String getAvatarname() {
+        return avatarname;
+    }
+
+    public void setAvatarname(String avatarname) {
+        this.avatarname = avatarname;
     }
 
     public Student(){

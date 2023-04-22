@@ -26,11 +26,32 @@ public class User implements UserDetails {
         return roles.contains(Role.ADMIN);
     }
 
-    public User(String username,String password,boolean active,Set<Role> roles){
+    private String email;
+    private String activationCode;
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getActivationCode() {
+        return activationCode;
+    }
+
+    public void setActivationCode(String activationCode) {
+        this.activationCode = activationCode;
+    }
+
+    public User(String username, String password, boolean active, Set<Role> roles, String email, String activationCode){
         this.username=username;
         this.password=password;
         this.active=active;
         this.roles=roles;
+        this.email=email;
+        this.activationCode=activationCode;
     }
     public User(){
     }

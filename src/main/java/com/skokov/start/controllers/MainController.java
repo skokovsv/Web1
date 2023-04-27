@@ -1,7 +1,6 @@
 package com.skokov.start.controllers;
 
-import com.skokov.start.domain.entity.Student;
-import com.skokov.start.domain.entity.User;
+import com.skokov.start.domain.entity.*;
 import com.skokov.start.domain.repo.StudentRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -59,7 +58,13 @@ public class MainController {
             resultFileName = uuidFile + "." + file.getOriginalFilename();
             file.transferTo(new File(uploadDir + "\\" + resultFileName));
         }
-        final Student student = new Student(text,groupp,user,resultFileName);
+
+        // Student student = new Student(text,groupp,user,resultFileName);
+        String[] names = text.split(" ");
+        Firstname firstname = new Firstname(names[0]);
+        Secondname secondname = new Secondname(names[1]);
+        Lastname lastname = new Lastname(names[2]);
+        final Student student = new Student(firstname,secondname,lastname,groupp,user,resultFileName);
         studentRepo.save(student);
         Iterable<Student> students=studentRepo.findAll();
         model.addAttribute("students",students);

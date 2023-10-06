@@ -26,6 +26,7 @@ public class StudentService {
 //        }
 //        return fromDBstudent;
 //    }
+    //1
     public Student findByFirstnameAndSecondnameAndLastname(
             Firstname firstname, Secondname secondname, Lastname lastname){
         return studentRepo.findByFirstname_IdAndSecondnameIdAndLastnameId(

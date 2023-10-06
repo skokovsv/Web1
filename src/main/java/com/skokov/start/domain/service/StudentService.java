@@ -15,17 +15,17 @@ public class StudentService {
     public  StudentService(StudentRepo studentRepo){
         this.studentRepo=studentRepo;
     }
-    public Student saveIntoStudent(Student student){
-        if(student == null){
-            return null;
-        }
-        Student fromDBstudent = findByFirstnameAndSecondnameAndLastname(
-                student.getFirstname(),student.getSecondname(),student.getLastname());
-        if(fromDBstudent == null){
-            fromDBstudent = studentRepo.save(student);
-        }
-        return fromDBstudent;
-    }
+//    public Student saveIntoStudent(Student student){
+//        if(student == null){
+//            return null;
+//        }
+//        Student fromDBstudent = findByFirstnameAndSecondnameAndLastname(
+//                student.getFirstname(),student.getSecondname(),student.getLastname());
+//        if(fromDBstudent == null){
+//            fromDBstudent = studentRepo.save(student);
+//        }
+//        return fromDBstudent;
+//    }
     public Student findByFirstnameAndSecondnameAndLastname(
             Firstname firstname, Secondname secondname, Lastname lastname){
         return studentRepo.findByFirstname_IdAndSecondnameIdAndLastnameId(

@@ -3,6 +3,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.util.Collection;
 import java.util.Set;
 
@@ -13,14 +14,28 @@ public class User implements UserDetails {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @NotBlank(message = "Поле username не может быть пустым")
     private String username;
+
+    @NotBlank(message = "Поле password не может быть пустым")
     private String password;
+
+    @Transient
+    @NotBlank(message = "Поле подтверждения пароля не может быть пустым")
+    private String password2;
     private boolean active;
 
     @ElementCollection(targetClass = Role.class,fetch = FetchType.EAGER)
     @CollectionTable(name="user_role",joinColumns = @JoinColumn(name="user_id"))
     @Enumerated(EnumType.STRING)
     private Set<Role> roles;
+
+    public String getPassword2(){
+        return password2;
+    }
+    public void setPassword2(String password2){
+        this.password = password2;
+    }
 
     public boolean isAdmin(){
         return roles.contains(Role.ADMIN);

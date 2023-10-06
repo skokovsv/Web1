@@ -16,9 +16,14 @@
                     <a class="nav-link active" aria-current="page" href="/main">Вход в систему</a>
                 </li>
                 <#if isAdmin>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/user">Список пользователей</a>
-                </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/user">Список пользователей</a>
+                    </li>
+                </#if>
+                <#if user?? >
+                    <li class="nav-item active">
+                        <a href="/user/profile" class="nav-link">Профили</a>
+                    </li>
                 </#if>
             </ul>
             <div class="navbar-text mr-3">${name}</div>

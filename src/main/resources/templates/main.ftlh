@@ -20,13 +20,12 @@
                     <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
                         Добавить нового студента
                     </a>
-
-                    <div class="collapse" id="collapseExample">
+                    <div class="collapse <#if student??>show</#if>" id="collapseExample">
                         <div class="form-group mt-3">
                             <form action="/main" method="post" enctype="multipart/form-data">
                                 <div class="form-group ">
                                     <input type="text" class="form-control ${(name??)?string('is-invalid','')}"
-                                           value = "<#if student??>${student.getName()}</#if>" name="name"
+                                           value = "<#if student??>${student.getUsername()}</#if>" name="name"
                                            placeholder="Введите ФИО"/>
                                     <#if name??>
                                         <div class="invalid-feedback">

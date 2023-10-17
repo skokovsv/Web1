@@ -88,8 +88,8 @@ public class MainController {
     public String filter(@RequestParam String filter, Model model){
         Iterable<Student> students;
         if(filter!=null && !filter.isEmpty()){
-            int flrt=Integer.parseInt(filter);
-            students =studentRepo.findByGroupp(flrt);
+            //int flrt=Integer.parseInt(filter);
+            students =studentRepo.findByNamegroup(filter);
         } else{
             students=studentRepo.findAll();
         }
